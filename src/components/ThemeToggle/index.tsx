@@ -10,6 +10,7 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 // import theme toggle context
 import { ThemeToggleContext } from "./context";
+import { DarkMode, LightMode } from "@mui/icons-material";
 
 export function ThemeToggle() {
   // check theme is dark or light
@@ -19,8 +20,13 @@ export function ThemeToggle() {
   const themeToggle = useContext(ThemeToggleContext);
 
   return (
-    <IconButton sx={{ ml: 1 }} onClick={themeToggle.toggleColorMode} color="inherit">
-      {theme.palette.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+    <IconButton
+      aria-label={theme.palette.mode === "dark" ? "Enable Light Mode" : "Enable Dark Mode"}
+      sx={{ ml: 1 }}
+      onClick={themeToggle.toggleColorMode}
+      color="inherit"
+    >
+      {theme.palette.mode === "dark" ? <LightMode /> : <DarkMode />}
     </IconButton>
   );
 }
